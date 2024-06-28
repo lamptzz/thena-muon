@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const axios = require("axios");
 const cors = require('cors');
+const morgan = require("morgan");
 axios.defaults.headers.post["accept-encoding"] = "";
 const bodyParser = require("body-parser");
 const PORT = process.env.SERVER_PORT || 3000;
@@ -19,6 +20,8 @@ router.use(bodyParser.urlencoded({ extended: true }));
 router.use(cors({
   origin: '*'
 }));
+
+router.use(morgan(`\x1b[33m:date[iso] \x1b[0m:method :url HTTP/:http-version :status - :response-time ms - :res[content-length]`))
 
 router.get("/", (req, res) => {
   res.json({ message: "Muon Light Shield Node" });
