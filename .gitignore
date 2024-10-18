@@ -6,7 +6,6 @@
 # Node artifact files
 node_modules/
 data/*.req
-package-lock.json
 dist/
 
 # Log files
