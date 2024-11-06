@@ -121,11 +121,9 @@ module.exports = {
     },
 
     getInfo: async function (tcId) {
-        const subgraphEndpoint =
-            'https://api.studio.thegraph.com/query/70764/tc-perp-subgraph/version/latest'
+        const subgraphEndpoint = 'https://squid.subsquid.io/thena-squid/v/v4/graphql'
         const query = `{
-        participants(where: {competition_: {idCounter: ${tcId}}})
-            {   
+            participants:tcPerpParticipants(competition_idCounter: ${tcId}) {
                 owner
                 percentagePnl
                 isValid
